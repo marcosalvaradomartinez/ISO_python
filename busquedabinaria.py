@@ -20,7 +20,7 @@ while seguir:
         encontrado=True
     else:
         respuesta=input("Es mayor (s/n)")
-        if respuesta=="s":
+        if respuesta=="s":  
             min=numero+1
         else:
             max=numero-1
