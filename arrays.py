@@ -13,22 +13,35 @@ from os import system
 # for elemento in lista:
 #     print(elemento)
 
-def pide(letra):
-    numero=""
-    while not(numero.isnumeric()):
-        print("Vas a poner valor a", letra)
-        numero=input("Introduce un número:")
-    return int(numero)
-
 def menu():
     print("MENÚ: ")
     print("a) Introduce un valor en la lista")
     print("b) Mostrar lista")
+    print("c) Recuento de los elementos de la lista")
+    print("d) Sumar los elementos de la lista")
+    print("e) Hacer la media de los elementos de la lista")
     print("i) Salir")
 
+def pide():
+    numero=""
+    while not(numero.isnumeric()):
+        numero=input("Introduce un número:")
+    return int(numero)
+
 def mostrar():
-    print("Los elemetos de la lista son=", lista)
-    msvcrt.getch()
+    print("LISTA:", lista)
+
+def contar():
+    return len(lista)
+
+def sumar():
+    suma=0
+    for i in lista:
+        suma+=i
+    return suma
+
+def media():
+    return sumar/contar()
 
 lista=[]
 entrada=""
@@ -36,6 +49,16 @@ while entrada != "i":
     menu()
     entrada=input("Selecciona una opción:")
     if entrada == "a":
-        lista.append(input("Introduce una opción:"))
+        lista.append(pide())
     if entrada == "b":
-        mostrar()
+        print(mostrar())
+        msvcrt.getch()
+    if entrada == "c":
+        print("Los elementos que hay en la lista son:", contar())
+        msvcrt.getch()
+    if entrada=="d":
+        print("El total es:", sumar())
+        msvcrt.getch()
+    if entrada == "e":
+        print("La media es", media())
+        msvcrt.getch()
