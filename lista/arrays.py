@@ -22,8 +22,9 @@ def menu():
     print("e) Hacer la media de los elementos de la lista")
     print("f) El número más pequeño es:")
     print("g) El número más grande es:")
-    print("h) El número más grande se encuentra en la posición:")
-    print("i) El número más pequeño se encuentra en la posición:")
+    print("h) El número más pequeño se encuentra en la posición:")
+    print("x) Guardar los datos")
+    print("y) Cargar los datos")
     print("z) Salir")
 
 def pide():
@@ -64,18 +65,26 @@ def maximo():
     return max
 
 def pos_minimo():
-    posicion=lista[0]
+    posicion=0
     for i in range (len(lista)):
-        if lista[i] > lista [posicion]:
+        if lista[posicion] > lista [i]:
             posicion=i
         return posicion
 
-def pos_maximo():
-    posicion=lista[0]
-    for i in range (len(lista)):
-        if lista[i] < lista [posicion]:
-            posicion=i
-        return posicion
+def guardarDatos():
+    datos=0
+    fichero=open("ficha.txt", "w")
+    for x in lista:
+        fichero.write(str(x)+"\n")
+        datos+=1
+    return datos
+
+def cargarDatos():
+    lista=[]
+    fichero=open("ficha.txt", "r")
+    for datos in fichero:
+        lista.append(int(datos))
+
 
 lista=[]
 entrada=""
@@ -103,8 +112,11 @@ while entrada != "z":
         print(maximo())
         msvcrt.getch()
     if entrada == "h":
-        print(pos_maximo)
-        msvcrt.getch()
-    if entrada == "i":
         print(pos_minimo())
+        msvcrt.getch()
+    if entrada == "x":
+        print(guardarDatos())
+        msvcrt.getch()
+    if entrada == "y":
+        print(cargarDatos())
         msvcrt.getch()
