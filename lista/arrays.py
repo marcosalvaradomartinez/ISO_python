@@ -80,10 +80,13 @@ def guardarDatos():
     return datos
 
 def cargarDatos():
+    numero=0
     lista=[]
     fichero=open("ficha.txt", "r")
     for datos in fichero:
         lista.append(int(datos))
+        numero=numero +1
+    return numero
 
 
 lista=[]
