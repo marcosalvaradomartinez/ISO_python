@@ -20,7 +20,11 @@ def menu():
     print("c) Recuento de los elementos de la lista")
     print("d) Sumar los elementos de la lista")
     print("e) Hacer la media de los elementos de la lista")
-    print("i) Salir")
+    print("f) El número más pequeño es:")
+    print("g) El número más grande es:")
+    print("h) El número más grande se encuentra en la posición:")
+    print("i) El número más pequeño se encuentra en la posición:")
+    print("z) Salir")
 
 def pide():
     numero=""
@@ -29,7 +33,8 @@ def pide():
     return int(numero)
 
 def mostrar():
-    print("LISTA:", lista)
+    for num in lista:
+        print(num)
 
 def contar():
     return len(lista)
@@ -41,11 +46,40 @@ def sumar():
     return suma
 
 def media():
-    return sumar/contar()
+    total = sumar()
+    return total/contar()
+
+def minimo():
+    min=lista[0]
+    for i in lista:
+        if i<min:
+            min=i
+    return min
+
+def maximo():
+    max=lista[0]
+    for i in lista:
+        if i>max:
+            max=i
+    return max
+
+def pos_minimo():
+    posicion=lista[0]
+    for i in range (len(lista)):
+        if lista[i] > lista [posicion]:
+            posicion=i
+        return posicion
+
+def pos_maximo():
+    posicion=lista[0]
+    for i in range (len(lista)):
+        if lista[i] < lista [posicion]:
+            posicion=i
+        return posicion
 
 lista=[]
 entrada=""
-while entrada != "i":
+while entrada != "z":
     menu()
     entrada=input("Selecciona una opción:")
     if entrada == "a":
@@ -61,4 +95,16 @@ while entrada != "i":
         msvcrt.getch()
     if entrada == "e":
         print("La media es", media())
+        msvcrt.getch()
+    if entrada == "f":
+        print(minimo())
+        msvcrt.getch()
+    if entrada == "g":
+        print(maximo())
+        msvcrt.getch()
+    if entrada == "h":
+        print(pos_maximo)
+        msvcrt.getch()
+    if entrada == "i":
+        print(pos_minimo())
         msvcrt.getch()
