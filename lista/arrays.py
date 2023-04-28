@@ -23,6 +23,8 @@ def menu():
     print("f) El número más pequeño es:")
     print("g) El número más grande es:")
     print("h) El número más pequeño se encuentra en la posición:")
+    print("i) Ordenar los datos")
+    print("j) Mediana de los números")
     print("x) Guardar los datos")
     print("y) Cargar los datos")
     print("z) Salir")
@@ -88,6 +90,23 @@ def cargarDatos():
         numero=numero +1
     return numero
 
+def ordenaDatos():
+    for i in range (len(lista)):
+        for j in range (i+1,len(lista)-1):
+            print(lista)
+            if lista [i] > lista [j]:
+                aux = lista[i]
+                lista[i] = lista[j]
+                lista[j] = aux
+                print(lista)
+
+def mediana():
+    ordenaDatos()
+    posicion = int(len(lista)/2)
+    if len(lista)%2 == 1:
+        return lista[posicion]
+    else:
+        return (lista[posicion]+lista[posicion-1])/2
 
 lista=[]
 entrada=""
@@ -116,6 +135,12 @@ while entrada != "z":
         msvcrt.getch()
     if entrada == "h":
         print(pos_minimo())
+        msvcrt.getch()
+    if entrada == "i":
+        print(ordenaDatos())
+        msvcrt.getch()
+    if entrada == "j":
+        print(mediana(lista))
         msvcrt.getch()
     if entrada == "x":
         print(guardarDatos())
